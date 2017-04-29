@@ -2,12 +2,13 @@
 public class Exercise {
 	
 	public static void main(String[] args) {
-		phuongtrinhbacnhat(4, 8);
-		phuongtrinhbacnhat(4, -8);
-		phuongtrinhbac2(0, 4, 8);
+//		phuongtrinhbacnhat(4, 8);
+//		phuongtrinhbacnhat(4, -8);
+		phuongtrinhbac2(1, -2, 1);
+		phuongtrinhbac2(2, 5, 2);
 	}
 
-	static void phuongtrinhbacnhat(int a, int b) {
+	static void phuongtrinhbacnhat(double a, double b) {
 		double x = (-b) / a;
 		
 		if (a == 0) {
@@ -21,7 +22,7 @@ public class Exercise {
 		}
 	}
 
-	static void phuongtrinhbac2(int a, int b, int c) {
+	static void phuongtrinhbac2(double a, double b, double c) {
 		
 		if (a == 0) {
 			System.out.println("Day la phuong trinh bac nhat");
@@ -34,29 +35,52 @@ public class Exercise {
 			return;
 		}
 		if (isTruongHopDacbiet2(a, b, c)) {
-			System.out.println("Nghiem cua phuong trinh la: x1 = 1; x2 = " + -c / a);
+			System.out.println("Nghiem cua phuong trinh la: x1 = -1; x2 = " + -c / a);
 			return;
 		}
-		double D = (b * b) - 4 * a * c;
+		
+		double delta = getDeltaFrom(a, b, c);
 
-		if (D < 0) {
+		if (delta < 0) {
 			System.out.println("phuong trinh vo nghiem");
 			return;
 		}
-		if (D == 0) {
+		
+		if (delta == 0) {
 			StringBuilder builder = new StringBuilder();
 			builder.append("phuong trinh co nghiem kep, x1 = x2 =");
 			builder.append(String.valueOf((-b / 2 * a)));
 			System.out.println(builder.toString());
 			return;
 		}
+		
+		if (delta > 0){
+			StringBuilder builder = new StringBuilder();
+			builder.append("Phuong trinh co nghiem 2 nghiem").append("\n");
+			builder.append("   X1 = ").append(tinhNghiem1(a, b, c, delta)).append("\n");;
+			builder.append("   X2 = ").append(tinhNghiem2(a, b, c, delta));
+			System.out.println(builder.toString());
+			return;
+		}
 	}
 	
-	static boolean isTruongHopDacbiet1(int a, int b, int c) {
+	static double tinhNghiem1(double a, double b, double c, double delta) {
+		return (-b + Math.sqrt(delta)) / (2*a);
+	}
+	
+	static double tinhNghiem2(double a, double b, double c, double delta) {
+		return (-b - Math.sqrt(delta))/ (2*a);
+	}
+	
+	static double getDeltaFrom(double a, double b, double c) {
+		return (b * b) - 4 * a * c;
+	}
+	
+	static boolean isTruongHopDacbiet1(double a, double b, double c) {
 		return ((a != 0) && (a + b + c == 0));
 	}
 	
-	static boolean isTruongHopDacbiet2(int a, int b, int c) {
+	static boolean isTruongHopDacbiet2(double a, double b, double c) {
 		return (a != 0) && (a - b + c == 0);
 	}
 }
