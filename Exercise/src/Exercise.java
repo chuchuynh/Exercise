@@ -2,13 +2,16 @@
 public class Exercise {
 
 	public static void main(String[] args) {
-		// phuongtrinhbacnhat(4, 8);
-		// phuongtrinhbacnhat(4, -8);
-		phuongtrinhbac2(1, -2, 1);
-		phuongtrinhbac2(2, 5, 2);
+		 phuongtrinhbacnhat(4, 8);
+		 phuongtrinhbacnhat(4, -8);
+		 phuongtrinhbacnhat(4, 0);
+		// phuongtrinhbac2(1, -2, 1);
+		// phuongtrinhbac2(2, 5, 2);
+		
+		
 	}
 
-	static void phuongtrinhbacnhat(double a, double b) {
+	static void phuongtrinhbacnhat(int a, int b) {
 		double x = (-b) / a;
 
 		if (a == 0) {
@@ -22,7 +25,7 @@ public class Exercise {
 		}
 	}
 
-	static void phuongtrinhbac2(double a, double b, double c) {
+	static void phuongtrinhbac2(int a, int b, int c) {
 
 		if (a == 0) {
 			System.out.println("Day la phuong trinh bac nhat");
@@ -64,23 +67,23 @@ public class Exercise {
 		}
 	}
 
-	static double tinhNghiem1(double a, double b, double c, double delta) {
+	static double tinhNghiem1(int a, int b, int c, double delta) {
 		return (-b + Math.sqrt(delta)) / (2 * a);
 	}
 
-	static double tinhNghiem2(double a, double b, double c, double delta) {
+	static double tinhNghiem2(int a, int b, int c, double delta) {
 		return (-b - Math.sqrt(delta)) / (2 * a);
 	}
 
-	static double getDeltaFrom(double a, double b, double c) {
+	static double getDeltaFrom(int a, int b, int c) {
 		return (b * b) - 4 * a * c;
 	}
 
-	static boolean isTruongHopDacbiet1(double a, double b, double c) {
+	static boolean isTruongHopDacbiet1(int a, int b, int c) {
 		return ((a != 0) && (a + b + c == 0));
 	}
 
-	static boolean isTruongHopDacbiet2(double a, double b, double c) {
+	static boolean isTruongHopDacbiet2(int a, int b, int c) {
 		return (a != 0) && (a - b + c == 0);
 	}
 }
